@@ -8,4 +8,5 @@ setup(name='AI_In_Schools',
       author='Nicole Wheeler',
       author_email='nwheeler443@gmail.com',
       packages=['biopython'],
+      package_dir = {'': 'utils'}
      )
