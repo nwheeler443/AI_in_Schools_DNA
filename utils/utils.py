@@ -2,6 +2,7 @@
 
 # generate a random DNA sequence of a given length
 import random
+import pandas as pd
 
 def random_DNA(length):
     DNA=""
