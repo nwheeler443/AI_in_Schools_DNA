@@ -63,7 +63,7 @@ def calculate_match_score(sequence, amino_acid_frequencies):
 
 clrs =  {'A':'#FA5F55','L':'#FA5F55','I':'#FA5F55','V':'#FA5F55','M':'#FA5F55','F':'#FA5F55','Y':'#FA5F55','W':'#FA5F55', # hydrophobic
                  'H':'#3395FF','K':'#3395FF','R':'#3395FF', # basic
-                 'D':'#7DCEA0','E':'#7DCEA0', # acidic
+                 'D':'#52BE80','E':'#52BE80', # acidic
                  'S':'#F5B041','T':'#F5B041','N':'#F5B041','Q':'#F5B041', # polar
                  'C':'#F5B7B1','U':'#F5B7B1','G':'#F5B7B1','P':'#F5B7B1', # special cases
                  '-':'white', '*':'black'}
