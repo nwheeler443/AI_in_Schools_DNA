@@ -34,3 +34,28 @@ def show_scores(df):
     return df.apply(pd.to_numeric).style.format('{0:,.1f}').background_gradient(cmap ='RdBu_r', vmin=-5, vmax=5).set_properties(**{'font-size': '8px'}).set_table_styles([
                             {"selector":"thead", "props": [("font-size", "8px")]}, {"selector":"th.row_heading", "props": [("font-size", "10px"), ("width", "100")]},]).set_table_styles([{
      'selector': 'caption','props': 'font-size:1.25em;font-weight:bold'}], overwrite=False)
+
+
+def calculate_match_score(sequence, amino_acid_frequencies):
+    # create a list to store the match scores for each position in the sequence
+    match_scores = []
+
+    # for each position in the sequence
+    for position in sequence.index:
+
+        # find out the amino acid
+        amino_acid = sequence[position]
+
+        # get the frequencies of that amino acid in that position
+        frequencies_pos = amino_acid_frequencies[str(position)][amino_acid]
+        # get the frequencies of that amino acid across the whole protein
+        frequencies_whole = amino_acid_frequencies['whole protein'][amino_acid]
+
+        # calculate the odds ratio of the amino acid at that position in the sequence compared to the baseline
+        # 1 - the frequency gives you the odds of not seeing a particular amino acid
+        odds_ratio = (frequencies_pos / (1 - frequencies_pos)) / (frequencies_whole / (1 - frequencies_whole))
+
+        # calculate the log of the score and add it to the list
+        match_scores.append(np.log(odds_ratio))
+
+    return match_scores
