@@ -60,3 +60,26 @@ def calculate_match_score(sequence, amino_acid_frequencies):
         match_scores.append(np.log(odds_ratio))
 
     return match_scores
+
+def view_alignment(df):
+    return df.style.style.apply(highlight_cells)
+
+
+clrs =  {'A':'red','L':'red','I':'red','V':'red','M':'red','F':'red','Y':'red','W':'red', # hydrophobic
+                 'H':'blue','K':'blue','R':'blue', # basic
+                 'D':'green','E':'green', # acidic
+                 'S':'orange','T':'orange','N':'orange','Q':'orange', # polar
+                 'C':'pink','U':'pink','G':'pink','P':'pink', # special cases
+                 '-':'white', '*':'black'}
+
+
+def highlight_cells(x):
+    return 'background-color: ' + x.map(
+        # Associate Values to a given colour code
+        {'A':'red','L':'red','I':'red','V':'red','M':'red','F':'red','Y':'red','W':'red', # hydrophobic
+                 'H':'#3395FF','K':'#3395FF','R':'#3395FF', # basic
+                 'D':'green','E':'green', # acidic
+                 'S':'orange','T':'orange','N':'orange','Q':'orange', # polar
+                 'C':'pink','U':'pink','G':'pink','P':'pink', # special cases
+                 '-':'white', '*':'black'}
+    ).fillna('gray')  # Fill unmapped values with default
