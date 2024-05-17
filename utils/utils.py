@@ -22,11 +22,16 @@ def mutate_n(dna, N):
 
 def show_table(df):
     return df.apply(pd.to_numeric).style.format('{0:,.1f}').background_gradient(cmap ='RdBu', vmin=-5, vmax=5).set_properties(**{'font-size': '8px'}).set_table_styles([
-                            {"selector":"thead", "props": [("font-size", "4px")]}, {"selector":"th.row_heading", "props": [("font-size", "10px")]},])
+                            {"selector":"thead", "props": [("font-size", "4px")]}, {"selector":"th.row_heading", "props": [("font-size", "10px")]},]).set_table_styles([{
+     'selector': 'caption','props': 'font-size:1.25em;font-weight:bold'}], overwrite=False)
 
 def show_frequency_table(df):
-    return df.style.background_gradient(cmap ='Blues').set_properties(**{'font-size': '10px'})
+    return df.style.background_gradient(cmap ='Blues').set_properties(**{'font-size': '10px'}).set_table_styles([{
+     'selector': 'caption',
+     'props': 'font-size:1.25em;font-weight:bold'
+ }], overwrite=False)
 
 def show_scores(df):
     return df.apply(pd.to_numeric).style.format('{0:,.1f}').background_gradient(cmap ='RdBu_r', vmin=-5, vmax=5).set_properties(**{'font-size': '8px'}).set_table_styles([
-                            {"selector":"thead", "props": [("font-size", "8px")]}, {"selector":"th.row_heading", "props": [("font-size", "10px"), ("width", "100")]},])
+                            {"selector":"thead", "props": [("font-size", "8px")]}, {"selector":"th.row_heading", "props": [("font-size", "10px"), ("width", "100")]},]).set_table_styles([{
+     'selector': 'caption','props': 'font-size:1.25em;font-weight:bold'}], overwrite=False)
