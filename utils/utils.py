@@ -21,7 +21,7 @@ def mutate_n(dna, N):
     return ''.join(dna)
 
 def show_table(df,cols):
-    return df.apply(pd.to_numeric).background_gradient(cmap ='RdBu', axis=None, gmap=cols, vmin=-5, vmax=5).set_tooltips(cols.round(1)).set_table_styles([{
+    return df.apply(pd).background_gradient(cmap ='RdBu', axis=None, gmap=cols, vmin=-5, vmax=5).set_tooltips(cols.round(1)).set_table_styles([{
      'selector': 'caption','props': 'font-size:1.25em;font-weight:bold'}], overwrite=False)
 
 def show_frequency_table(df):
