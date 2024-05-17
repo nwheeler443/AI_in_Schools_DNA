@@ -20,9 +20,8 @@ def mutate_n(dna, N):
         dna[mutation_site] = new_base
     return ''.join(dna)
 
-def show_table(df):
-    return df.apply(pd.to_numeric).style.format('{0:,.1f}').background_gradient(cmap ='RdBu', vmin=-5, vmax=5).set_properties(**{'font-size': '8px'}).set_table_styles([
-                            {"selector":"thead", "props": [("font-size", "4px")]}, {"selector":"th.row_heading", "props": [("font-size", "10px")]},]).set_table_styles([{
+def show_table(df,cols):
+    return df.apply(pd.to_numeric).style.format('{0:,.1f}').background_gradient(cmap ='RdBu', axis=None, gmap=cols, vmin=-5, vmax=5).set_tooltips(cols.round(1)).set_table_styles([{
      'selector': 'caption','props': 'font-size:1.25em;font-weight:bold'}], overwrite=False)
 
 def show_frequency_table(df):
