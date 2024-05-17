@@ -1,10 +1,10 @@
 #! /usr/bin/env python3
 
-# generate a random DNA sequence of a given length
 import random
 import pandas as pd
 import numpy as np
 
+# generate a random DNA sequence of a given length
 def random_DNA(length):
     DNA=""
     for count in range(length):
@@ -12,7 +12,6 @@ def random_DNA(length):
     return DNA
 
 # mutate a DNA sequence N times
-
 def mutate_n(dna, N):
     dna = list(dna)
     for i in range(N):
@@ -56,6 +55,7 @@ def calculate_match_score(sequence, amino_acid_frequencies):
         # 1 - the frequency gives you the odds of not seeing a particular amino acid
         odds_ratio = (frequencies_pos / (1 - frequencies_pos)) / (frequencies_whole / (1 - frequencies_whole))
 
+        import numpy as np # not recognising this for some reason
         # calculate the log of the score and add it to the list
         match_scores.append(np.log(odds_ratio))
 
