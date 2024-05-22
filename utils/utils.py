@@ -69,9 +69,12 @@ clrs =  {'A':'#FA5F55','L':'#FA5F55','I':'#FA5F55','V':'#FA5F55','M':'#FA5F55','
                  '-':'white', '*':'black'}
 
 
-def highlight_cells(x):
+def highlight_proteins(x):
     return 'background-color: ' + x.map(clrs)
 
-def view_alignment(df):
-    return df.style.apply(highlight_cells)
+def small_text(x):
+    return 'font-size: 10px'
+
+def view_proteins(df):
+    return df.style.apply(highlight_proteins).applymap(small_text)
 
