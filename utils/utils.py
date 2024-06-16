@@ -71,19 +71,19 @@ clrs_prot =  {'A':'#FA5F55','L':'#FA5F55','I':'#FA5F55','V':'#FA5F55','M':'#FA5F
 clrs_dna = {'A':'#3395FF','T':'#FA5F55','G':'#FFA726','C':'#52BE80'}
 
 def highlight_proteins(x):
-    return 'background-color: ' + x.map(clrs_prot)
+    return 'background-color: ' + x.applymap(clrs_prot)
 
 def highlight_dna(x):
-    return 'background-color: ' + x.map(clrs_dna)
+    return 'background-color: ' + x.applymap(clrs_dna)
 
 def small_text(x):
     return 'font-size: 10px'
 
 def view_proteins(df):
-    return df.style.apply(highlight_proteins).map(small_text)
+    return df.style.apply(highlight_proteins).applymap(small_text)
 
 def view_dna(df):
-    return df.style.apply(highlight_dna).map(small_text)
+    return df.style.apply(highlight_dna).applymap(small_text)
 
 
 
