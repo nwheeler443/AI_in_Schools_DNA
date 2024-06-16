@@ -85,5 +85,6 @@ def view_proteins(df):
 def view_dna(df):
     return df.style.apply(highlight_dna).applymap(small_text)
 
-
-
+def add_sequence(df, sequence):
+    df = pd.concat([df, sequence], axis=0)
+    return df
