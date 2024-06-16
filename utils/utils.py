@@ -80,10 +80,10 @@ def small_text(x):
     return 'font-size: 10px'
 
 def view_proteins(df):
-    return df.style.apply(highlight_proteins).applymap(small_text)
+    return df.style.apply(highlight_proteins).map(small_text)
 
 def view_dna(df):
-    return df.style.apply(highlight_dna).applymap(small_text)
+    return df.style.apply(highlight_dna).map(small_text)
 
 
 
