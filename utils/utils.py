@@ -61,20 +61,29 @@ def calculate_match_score(sequence, amino_acid_frequencies):
 
     return match_scores
 
-clrs =  {'A':'#FA5F55','L':'#FA5F55','I':'#FA5F55','V':'#FA5F55','M':'#FA5F55','F':'#FA5F55','Y':'#FA5F55','W':'#FA5F55', # hydrophobic
+clrs_prot =  {'A':'#FA5F55','L':'#FA5F55','I':'#FA5F55','V':'#FA5F55','M':'#FA5F55','F':'#FA5F55','Y':'#FA5F55','W':'#FA5F55', # hydrophobic
                  'H':'#3395FF','K':'#3395FF','R':'#3395FF', # basic
                  'D':'#52BE80','E':'#52BE80', # acidic
                  'S':'#FFA726','T':'#FFA726','N':'#FFA726','Q':'#FFA726', # polar
                  'C':'#F48FB1','U':'#F48FB1','G':'#F48FB1','P':'#F48FB1', # special cases
                  '-':'white', '*':'black'}
 
+clrs_dna = {'A':'#3395FF','T':'#FA5F55','G':'#FFA726','C':'#52BE80'}
 
 def highlight_proteins(x):
-    return 'background-color: ' + x.map(clrs)
+    return 'background-color: ' + x.map(clrs_prot)
+
+def highlight_dna(x):
+    return 'background-color: ' + x.map(clrs_dna)
 
 def small_text(x):
     return 'font-size: 10px'
 
 def view_proteins(df):
     return df.style.apply(highlight_proteins).applymap(small_text)
+
+def view_dna(df):
+    return df.style.apply(highlight_dna).applymap(small_text)
+
+
 
